@@ -10,30 +10,34 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource',
   function(oj, ko) {
     function ControllerViewModel() {
       var self = this;
+      
+      var menuDashboard = oj.Translations.getTranslatedString("menu.dashboard");
+      var menuLectures = oj.Translations.getTranslatedString("menu.lectures");
+      var menuSignup = oj.Translations.getTranslatedString("menu.signup");
+      var menuProfile = oj.Translations.getTranslatedString("menu.profile");
 
       // Router setup
       self.router = oj.Router.rootInstance;
       self.router.configure({
-       'dashboard': {label: 'Dashboard', isDefault: true},
-       'incidents': {label: 'Incidents'},
-       'customers': {label: 'Customers'},
-       'profile': {label: 'Profile'},
-       'about': {label: 'About'}
+       'dashboard': {label: menuDashboard, isDefault: true},
+       'lectures': {label: menuLectures},
+       'signup': {label: menuSignup},
+       'profile': {label: menuProfile}
       });
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
+      
+      self.titleName = ko.observable(oj.Translations.getTranslatedString("appTitle"));
 
       // Navigation setup
       var navData = [
-      {name: 'Dashboard', id: 'dashboard',
+      {name: menuDashboard, id: 'dashboard',
         iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24'},
-      {name: 'Incidents', id: 'incidents',
+      {name: menuLectures, id: 'lectures',
         iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24'},
-      {name: 'Customers', id: 'customers',
+      {name: menuSignup, id: 'signup',
         iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24'},
-      {name: 'Profile', id: 'profile',
-        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'},
-      {name: 'About', id: 'about',
-        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24'}
+      {name: menuProfile, id: 'profile',
+        iconClass: 'oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24'}
       ];
       self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
       self.navChangeHandler = function (event, data) {

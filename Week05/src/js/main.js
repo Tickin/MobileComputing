@@ -37,6 +37,13 @@ requirejs.config(
     {
       exports: ['jQuery', '$']
     }
+  },
+  config: {
+      ojL10n: {
+          merge: {
+              'ojtranslations/nls/ojtranslations': 'resources/nls/myTranslations'
+          }
+      }
   }
 }
 );
@@ -59,7 +66,8 @@ require(['ojs/ojcore', 'knockout', 'appController', 'ojs/ojknockout',
       self.toggleDrawer = app.toggleDrawer;
 
       // Sample user data
-      self.userName = ko.observable("James");
+      self.userName = ko.observable("Tickin");
+      self.titleName = ko.observable(oj.Translations.getTranslatedString("appTitle"));
     }
 
     $(function() {
