@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <div class="oj-hybrid-padding">
+        <h3>201424522 장병엽</h3>
+        <div>
+            <div id="tabs" data-bind="ojComponent:{component: 'ojTabs'}">
+                <ul>
+                    <li><span>Summary</span></li>
+                    <li><span>Character</span></li>
+                    <li><span>Planet</span></li>
+                    <li><span>Starship</span></li>
+                </ul>
+                <div id="tabs-1">
+                     <div class="oj-form">
+                         <div class="oj-flex">
+                             <div class="oj-flex-item">
+                             <label for="input">Title</label>
+                             <input id="input" data-bind="ojComponent:
+                             {component: 'ojInputText', value:title, required: true}">
+                             </div>
+                         </div>
+                         <div class="oj-flex">
+                             <div class="oj-flex-item">
+                             <label for="input">Episode ID</label>
+                             <input id="input" data-bind="ojComponent:
+                             {component: 'ojInputText', value:episode_id, required: true}">
+                             </div>
+                         </div>
+                         <div class="oj-flex">
+                             <div class="oj-flex-item">
+                                 <label for="input">Opening Crawl</label>
+                                 <input id="input" data-bind="ojComponent:
+                                 {component: 'ojInputText', value:opening_crawl, required: true}">
+                             </div>
+                         </div>
+                         <div class="oj-flex">
+                             <div class="oj-flex-item">
+                             <label for="input">Director</label>
+                             <input id="input" data-bind="ojComponent:
+                             {component: 'ojInputText', value:director, required: true}">
+                             </div>
+                         </div>
+                         <div class="oj-flex">
+                             <div class="oj-flex-item">
+                             <label for="input">Producer</label>
+                             <input id="input" data-bind="ojComponent:
+                             {component: 'ojInputText', value:producer, required: true}">
+                             </div>
+                         </div>
+                         <div class="oj-flex">
+                             <div class="oj-flex-item">
+                             <label for="input">Release Date</label>
+                             <input id="input" data-bind="ojComponent:
+                             {component: 'ojInputText', value:release_date, required: true}">
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                <div id="tabs-2">
+                    <ul id="listview" aria-label="list using array"
+                        data-bind="ojComponent: {component: 'ojListView',
+                        item: {template: 'character_template'},
+                        data: characterDataSource,
+                        selectionMode: 'none',
+                    }">
+                    </ul>
+                </div>
+                <div id="tabs-3">
+                    <ul id="listview" aria-label="list using array"
+                        data-bind="ojComponent: {component: 'ojListView',
+                        item: {template: 'planet_template'},
+                        data: planetDataSource,
+                        selectionMode: 'none',
+                    }">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/html" id="character_template">
+        <li>
+            <div class="oj-flex">
+                <b><span data-bind="text:$data['name']"></span></b>
+            </div>
+            <div class="oj-flex">
+                <span>Height: <span data-bind="text:$data['height']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Mass: <span data-bind="text:$data['mass']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Birth Year: <span data-bind="text:$data['birth_year']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Gender: <span data-bind="text:$data['gender']"></span> </span>
+            </div>
+        </li>
+    </script>
+    <script type="text/html" id="planet_template">
+        <li>
+            <div class="oj-flex">
+                <b><span data-bind="text:$data['name']"></span></b>
+            </div>
+            <div class="oj-flex">
+                <span>Diameter: <span data-bind="text:$data['diameter']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Climate: <span data-bind="text:$data['climate']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Gravity: <span data-bind="text:$data['gravity']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Population: <span data-bind="text:$data['population']"></span> </span>
+            </div>
+        </li>
+    </script>
+</html>
