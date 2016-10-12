@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <div class="oj-hybrid-padding">
+        <h3>201424522 장병엽</h3>
+        <div>
+            <div id="tabs" data-bind="ojComponent:{component: 'ojTabs'}">
+                <ul>
+                    <li><span>Summary</span></li>
+                    <li><span>Character</span></li>
+                    <li><span>Planet</span></li>
+                    <li><span>Starship</span></li>
+                </ul>
+                <div id="tabs-1">
+                    <ul id="listview" aria-label="list using array"
+                        data-bind="ojComponent: {component: 'ojListView',
+                                    selectionMode: 'none',}">
+                        <li>
+                            <div class="oj-flex">
+                                <b><span data-bind="text:title"></span></b>
+                            </div>
+                            <div class="oj-flex">
+                                <span>Episode ID: <span data-bind="text:episode_id"></span> </span>
+                            </div>
+                            <div class="oj-flex">
+                                <span>Director: <span data-bind="text:director"></span> </span>
+                            </div>
+                            <div class="oj-flex">
+                                <span>Producer: <span data-bind="text:producer"></span> </span>
+                            </div>
+                            <div class="oj-flex">
+                                <span>Release Date: <span data-bind="text:release_date"></span> </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="oj-flex">
+                                <b><span>Characters</span></b>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="oj-flex">
+                                <b><span>Planets</span></b>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="oj-flex">
+                                <b><span>Starships</span></b>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="tabs-3">
+                    <ul id="listview" aria-label="list using array"
+                        data-bind="ojComponent: {component: 'ojListView',
+                        item: {template: 'planet_template'},
+                        data: planetDataSource,
+                        selectionMode: 'none',
+                    }">
+                    </ul>
+                </div>
+                <div id="tabs-4">
+                    <ul id="listview" aria-label="list using array"
+                        data-bind="ojComponent: {component: 'ojListView',
+                        item: {template: 'starship_template'},
+                        data: starshipDataSource,
+                        selectionMode: 'none',
+                    }">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/html" id="character_template">
+        <li>
+            <div class="oj-flex">
+                <b><span data-bind="text:$data['name']"></span></b>
+            </div>
+            <div class="oj-flex">
+                <span>Height: <span data-bind="text:$data['height']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Mass: <span data-bind="text:$data['mass']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Birth Year: <span data-bind="text:$data['birth_year']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Gender: <span data-bind="text:$data['gender']"></span> </span>
+            </div>
+        </li>
+    </script>
+    <script type="text/html" id="planet_template">
+        <li>
+            <div class="oj-flex">
+                <b><span data-bind="text:$data['name']"></span></b>
+            </div>
+            <div class="oj-flex">
+                <span>Diameter: <span data-bind="text:$data['diameter']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Climate: <span data-bind="text:$data['climate']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Gravity: <span data-bind="text:$data['gravity']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Population: <span data-bind="text:$data['population']"></span> </span>
+            </div>
+        </li>
+    </script>
+    <script type="text/html" id="starship_template">
+        <li>
+            <div class="oj-flex">
+                <b><span data-bind="text:$data['name']"></span></b>
+            </div>
+            <div class="oj-flex">
+                <span>Model: <span data-bind="text:$data['model']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Manufacturer: <span data-bind="text:$data['manufacturer']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Length: <span data-bind="text:$data['length']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Crew: <span data-bind="text:$data['crew']"></span> </span>
+            </div>
+            <div class="oj-flex">
+                <span>Starship Class: <span data-bind="text:$data['starship_class']"></span> </span>
+            </div>
+        </li>
+    </script>
+</html>
