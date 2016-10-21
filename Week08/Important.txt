@@ -1,0 +1,2 @@
+WKDqudduq7385
+https://mcsoraclejet-busanuniv.mobileenv.us2.oraclecloud.com:443/mobile/platform/users/{username}

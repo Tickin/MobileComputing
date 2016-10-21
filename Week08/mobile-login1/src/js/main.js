@@ -54,6 +54,9 @@ require(['ojs/ojcore', 'knockout', 'appController', 'ojs/ojknockout',
     function MainViewModel() {
       var self = this;
       self.router = app.router;
+      self.selectedStateId = app.selectedStateId;
+      self.loginStatus = app.loginStatus;
+      self.doLogout = app.doLogout;
       self.navDataSource = app.navDataSource;
       self.navChangeHandler = app.navChangeHandler;
       self.toggleDrawer = app.toggleDrawer;

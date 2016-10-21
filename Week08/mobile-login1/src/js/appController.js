@@ -10,15 +10,42 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource',
   function(oj, ko) {
     function ControllerViewModel() {
       var self = this;
+      self.selectedStateId = ko.observable('');
+      self.loginStatus = ko.observable(false);
+      self.authStates = ['dashboard', 'incidents', 'customers', 'profile'];
+
+      self.authRequired = function(stateId){
+          return self.authStates.indexOf(stateId) >= 0;
+      }
+      
+      self.checkAuthentication = function(){
+          return self.loginStatus();
+      }
+      
+      self.doLogin = function(){
+          self.loginStatus(true);
+          
+          if(self.selectedStateId()){
+              self.router.go(self.selectedStateId());
+          }else{
+              self.router.go('dashboard');
+          }
+      }
+      
+      self.doLogout = function(){
+          self.loginStatus(false);
+          self.router.go('login');
+      }
 
       // Router setup
       self.router = oj.Router.rootInstance;
       self.router.configure({
-       'dashboard': {label: 'Dashboard', isDefault: true},
+       'dashboard': {label: 'Dashboard', isDefault: self.loginStatus()},
        'incidents': {label: 'Incidents'},
        'customers': {label: 'Customers'},
        'profile': {label: 'Profile'},
-       'about': {label: 'About'}
+       'about': {label: 'About'},
+       'login': {label: 'Login', isDefault: !self.loginStatus()}
       });
       oj.Router.defaults['urlAdapter'] = new oj.Router.urlParamAdapter();
 
@@ -37,6 +64,15 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource',
       ];
       self.navDataSource = new oj.ArrayTableDataSource(navData, {idAttribute: 'id'});
       self.navChangeHandler = function (event, data) {
+          if(self.authRequired(self.selectedStateId())){
+              if(self.checkAuthentication()){
+                  self.router.stateId(self.selectedStateId());
+              }else{
+                  self.router.stateId('login');
+              }
+          }else{
+              self.router.stateId(self.selectedStateId());
+          }
         if (data.option === 'selection' && data.value !== self.router.stateId()) {
           self.toggleDrawer();
         }

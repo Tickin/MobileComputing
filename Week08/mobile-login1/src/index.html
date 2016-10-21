@@ -66,7 +66,7 @@
         <!-- Navigation -->
         <div data-bind="ojComponent:{component: 'ojNavigationList',
             optionChange: navChangeHandler, navigationLevel: 'application',
-            selection: router.stateId, item: {template: 'navTemplate'},
+            selection: selectedStateId, item: {template: 'navTemplate'},
             data: navDataSource}" class="oj-navigationlist-stack-icon-label">
         </div>
         <div class="oj-flex-bar oj-sm-justify-content-center">
@@ -94,6 +94,8 @@
             </div>
             <div class="oj-flex-end">
                <!-- Add additional buttons here -->
+               <button data-bind="click:doLogout, visible: loginStatus, 
+                       ojComponent: {component: 'ojButton', label: 'Logout'}"></button>
             </div>
           </header>
         </div>
