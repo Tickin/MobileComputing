@@ -1,0 +1,219 @@
+<!--
+ Copyright (c) 2014, 2016, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div>
+  <div class="oj-applayout-fixed-top">
+      <!--
+       ** Oracle JET V2.1.0 hybrid mobile application header pattern.
+       ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+       ** more information on how to use this pattern.
+    -->
+    <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+    </header>
+  </div>
+  <!-- This is where your main page content will be loaded -->
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content">
+      <div class="oj-hybrid-padding">
+        <h3>학번: 201424522 이름: 장병엽</h3>
+        <div>
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <Label>Rating This App: </label>
+                        </td>
+                        <td>
+                            <div id="gauge1" 
+                            data-bind="ojComponent: {
+                              component: 'ojRatingGauge', 
+                              value:ratingValue,
+                              optionChange: optionChangeAction,
+                              readOnly: false
+                             }" 
+                             style="width:120px;height:25px;">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <br />
+                <table>
+                    <tr>
+                        <td>
+                            <div id="gauge1" 
+                            data-bind="ojComponent: {
+                              component: 'ojRatingGauge', 
+                              value:averageRating,
+                              readOnly: true
+                             }" 
+                             style="width:120px;height:25px;">
+                            </div>
+                        </td>
+                        <td>
+                            <p data-bind="text:Ratings">0 Ratings</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <div id="rat5" 
+                                data-bind="ojComponent: {
+                                  component: 'ojRatingGauge', 
+                                  value: 0,
+                                  readOnly: true,
+                                  selectedState:{color: '#d0d0d0'},
+                                  unselectedState:{color: 'gray'}
+                                 }" 
+                                 style="width:120px;height:25px;">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="gauge2" data-bind="ojComponent: {
+                                component: 'ojStatusMeterGauge', 
+                                min: 0, 
+                                max: clickedValue, 
+                                value: value5, 
+                                plotArea: {rendered: 'on'}, 
+                                readOnly: false
+                                }" 
+                                style=
+                                "margin-top:5px;
+                                margin-bottom:5px;
+                                height:20px;
+                                width:100%;">
+                           </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="rat4" 
+                                data-bind="ojComponent: {
+                                  component: 'ojRatingGauge', 
+                                  value: 1,
+                                  readOnly: true,
+                                  selectedState:{color: '#d0d0d0'},
+                                  unselectedState:{color: 'gray'}
+                                 }" 
+                                 style="width:120px;height:25px;">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="gauge2" data-bind="ojComponent: {
+                                component: 'ojStatusMeterGauge', 
+                                min: 0, 
+                                max: clickedValue, 
+                                value: value4, 
+                                plotArea: {rendered: 'on'}, 
+                                readOnly: true
+                                }" 
+                                style=
+                                "margin-top:5px;
+                                margin-bottom:5px;
+                                height:20px;
+                                width:100%;">
+                           </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="rat3" 
+                                data-bind="ojComponent: {
+                                  component: 'ojRatingGauge', 
+                                  value: 2,
+                                  readOnly: true,
+                                  selectedState:{color: '#d0d0d0'},
+                                  unselectedState:{color: 'gray'}
+                                 }" 
+                                 style="width:120px;height:25px;">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="gauge2" data-bind="ojComponent: {
+                                component: 'ojStatusMeterGauge', 
+                                min: 0, 
+                                max: clickedValue, 
+                                value: value3, 
+                                plotArea: {rendered: 'on'}, 
+                                readOnly: true
+                                }" 
+                                style=
+                                "margin-top:5px;
+                                margin-bottom:5px;
+                                height:20px;
+                                width:100%;">
+                           </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="rat2" 
+                                data-bind="ojComponent: {
+                                  component: 'ojRatingGauge', 
+                                  value: 3,
+                                  readOnly: true,
+                                  selectedState:{color: '#d0d0d0'},
+                                  unselectedState:{color: 'gray'}
+                                 }" 
+                                 style="width:120px;height:25px;">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="gauge2" data-bind="ojComponent: {
+                                component: 'ojStatusMeterGauge', 
+                                min: 0, 
+                                max: clickedValue, 
+                                value: value2, 
+                                plotArea: {rendered: 'on'}, 
+                                readOnly: true
+                                }" 
+                                style=
+                                "margin-top:5px;
+                                margin-bottom:5px;
+                                height:20px;
+                                width:100%;">
+                           </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="rat1" 
+                                data-bind="ojComponent: {
+                                  component: 'ojRatingGauge', 
+                                  value: 4,
+                                  readOnly: true,
+                                  selectedState:{color: '#d0d0d0'},
+                                  unselectedState:{color: 'gray'}
+                                 }" 
+                                 style="width:120px;height:25px;">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="gauge2" data-bind="ojComponent: {
+                                component: 'ojStatusMeterGauge', 
+                                min: 0, 
+                                max: clickedValue, 
+                                value: value1, 
+                                plotArea: {rendered: 'on'}, 
+                                readOnly: true
+                                }" 
+                                style=
+                                "margin-top:5px;
+                                margin-bottom:5px;
+                                height:20px;
+                                width:100%;">
+                           </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
