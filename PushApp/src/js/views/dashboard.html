@@ -1,0 +1,49 @@
+<!--
+ Copyright (c) 2014, 2016, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div>
+  <div class="oj-applayout-fixed-top">
+      <!--
+       ** Oracle JET V2.1.0 hybrid mobile application header pattern.
+       ** Please see the Oracle JET Cookbook App Shell: Hybrid Mobile demos for
+       ** more information on how to use this pattern.
+    -->
+    <header role="banner" class="oj-hybrid-applayout-header" data-bind="ojModule: headerConfig">
+    </header>
+  </div>
+  <!-- This is where your main page content will be loaded -->
+  <div class="oj-applayout-content">
+    <div role="main" class="oj-hybrid-applayout-content">
+      <div class="oj-hybrid-padding">
+        <h3>Dashboard Content Area</h3>
+        <div>
+            <div id="div1">
+
+                <label for="text-area">Device Token</label>
+                <textarea id="text-area" 
+                          data-bind="ojComponent: {component: 'ojTextArea', 
+                                                   value: deviceToken}"></textarea>
+
+                <br/><br/>
+
+                <label for="mbeId">Mobile Backend ID</label>
+                <textarea id="resizeBoth" 
+                          style="resize: both;"
+                          data-bind="ojComponent: {component: 'ojTextArea', 
+                                                   value: mbeId}" ></textarea>
+
+                <br/><br/>
+
+                <span class="oj-label">Authorization</span>
+                <span data-bind="text: auth"></span>
+
+                <br /><br />
+
+                <button data-bind="click:registerToken">Register Token</button> 
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
